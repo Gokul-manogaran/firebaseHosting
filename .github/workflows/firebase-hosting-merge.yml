@@ -19,14 +19,11 @@ jobs:
         with:
           projectId: task-2122a
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TASK_2122A }}
-          channelId: live
-          target: hosting-task-2122a
           repoToken: ${{ secrets.GITHUB_TOKEN }}
       - name: Deploy to Firebase Hosting on dev branch
         if: github.ref == 'refs/heads/dev'
         uses: FirebaseExtended/action-hosting-deploy@v0
         with:
-          target: hosting-task-2122a-dev
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_TASK_2122A }}
           channelId: preview
